@@ -1,5 +1,6 @@
 from optparse import OptionParser
 from random import choice
+from pickle import load
 
 parser = OptionParser()
 parser.add_option("--length", dest="length")
@@ -8,7 +9,7 @@ parser.add_option("--prefix", dest="prefix")
 
 args, _ = parser.parse_args()
 
-dct = eval(open(args.load_path).read())
+dct = load(open(args.load_path, 'rb'))
 
 text = []
 
