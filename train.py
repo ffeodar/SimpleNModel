@@ -1,5 +1,6 @@
 from collections import defaultdict
 from optparse import OptionParser
+from pickle import dump
 import os
 
 
@@ -40,6 +41,6 @@ else:
     for i in get_files_in_folder(args.input_dir):
         process(open(i, encoding="utf-8").read())
 
-out_file = open(args.save_path, 'w')
-print(dict(dct), file=out_file)
+out_file = open(args.save_path, 'wb')
+dump(dict(dct), out_file)
 out_file.close()
